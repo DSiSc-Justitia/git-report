@@ -24,6 +24,7 @@
     "@icedesign/skin": "^0.1.0",
     "@types/react": "^16.4.16",
     "@types/superagent": "^3.8.4",
+    "axios": "^0.18.0",
     "bizcharts": "^3.0.5",
     "classnames": "^2.2.5",
     "echarts": "^4.0.4",
