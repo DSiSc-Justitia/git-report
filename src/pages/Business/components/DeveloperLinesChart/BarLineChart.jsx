@@ -36,7 +36,7 @@ export default class BarLineChart extends Component {
   componentDidMount() {
     axios.get(chartDataUrl).then((resp) => {
       this.setState({
-        chartData: resp
+        chartData: resp.data
       });
     });
   }
