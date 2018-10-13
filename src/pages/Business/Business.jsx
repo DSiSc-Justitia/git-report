@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import BarLineChart from './components/BarLineChart';
-import BarLineChart1 from './components/BarLineChart1';
-import BarLineChart2 from './components/BarLineChart2';
-import BarLineChart3 from './components/BarLineChart3';
+import DeveloperLinesChart from './components/DeveloperLinesChart';
+import DeveloperCommitsChart from './components/DeveloperCommitsChart';
+import RepositoryLinesChart from './components/RepositoryLinesChart';
+import RepositoryCommitsChart from './components/RepositoryCommitsChart';
 //import TabChart from './components/TabChart';
 
 export default class Business extends Component {
@@ -15,10 +15,10 @@ export default class Business extends Component {
   render() {
     return (
       <div>
-        <BarLineChart />
-        <BarLineChart1 />
-        <BarLineChart2 />
-        <BarLineChart3 />
+        <DeveloperLinesChart />
+        <DeveloperCommitsChart />
+        <RepositoryLinesChart />
+        <RepositoryCommitsChart />
       </div>
     );
   }
