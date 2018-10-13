@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import ReactEcharts from 'echarts-for-react';
 import axios from "axios";
-import author_commit_data from './author_commit_data'
 /**
  * 图表来源参考：http://gallery.echartsjs.com/editor.html?c=xHyE7GIMdG
  */
@@ -27,14 +26,13 @@ export default class BarLineChart extends Component {
                   "color": "#666"
               }
           }
-      }],
+        }],
         series:[]
       }
     };
   }
 
   componentDidMount() {
-
     axios.get(chartDataUrl).then((resp) => {
       this.setState({
         chartData: resp

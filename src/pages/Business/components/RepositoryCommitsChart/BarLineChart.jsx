@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import ReactEcharts from 'echarts-for-react';
-import proj_commit_data from './proj_commit_data'
+import axios from "axios";
 /**
  * 图表来源参考：http://gallery.echartsjs.com/editor.html?c=xHyE7GIMdG
  */
+const chartDataUrl = "https://dsisc.github.io/git-report/data/proj_commit_data.json";
 export default class BarLineChart extends Component {
   static displayName = 'BarLineChart';
 
@@ -14,7 +15,28 @@ export default class BarLineChart extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      chartData: {
+        data:[],
+        xAxis:[{
+          type: "category",
+          axisLabel: {
+              "show": "false",
+              "textStyle": {
+                  "color": "#666"
+              }
+          }
+        }],
+        series:[]
+      }
+    };
+  }
+  componentDidMount() {
+    axios.get(chartDataUrl).then((resp) => {
+      this.setState({
+        chartData: resp
+      });
+    });
   }
 
   getOption = () => {
@@ -39,13 +61,13 @@ export default class BarLineChart extends Component {
         },
       },
       legend: {
-        data: proj_commit_data.data,
+        data: this.state.chartData.data,
         top: '10%',
         textStyle: {
           color: '#fff',
         },
       },
-      xAxis: proj_commit_data.xAxis,
+      xAxis: this.state.chartData.xAxis,
       yAxis: [
         {
           type: 'value',
@@ -83,7 +105,7 @@ export default class BarLineChart extends Component {
       grid: {
         top: '20%',
       },
-      series: proj_commit_data.series,
+      series: this.state.chartData.series,
     };
   };
 
